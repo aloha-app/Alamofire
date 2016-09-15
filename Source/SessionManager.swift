@@ -693,7 +693,7 @@ open class SessionManager {
         if startRequestsImmediately { upload.resume() }
         return upload
     }
-
+/**
 #if !os(watchOS)
 
     // MARK: - Stream Request
@@ -751,7 +751,7 @@ open class SessionManager {
     }
 
 #endif
-
+**/
     // MARK: - Internal - Retry Request
 
     func retry(_ request: Request) -> Bool {

@@ -102,7 +102,7 @@ open class SessionDelegate: NSObject {
 
     /// Overrides default behavior for URLSessionDownloadDelegate method `urlSession(_:downloadTask:didResumeAtOffset:expectedTotalBytes:)`.
     open var downloadTaskDidResumeAtOffset: ((URLSession, URLSessionDownloadTask, Int64, Int64) -> Void)?
-
+/**
     // MARK: URLSessionStreamDelegate Overrides
 
 #if !os(watchOS)
@@ -120,6 +120,7 @@ open class SessionDelegate: NSObject {
     open var streamTaskDidBecomeInputAndOutputStreams: ((URLSession, URLSessionStreamTask, InputStream, OutputStream) -> Void)?
 
 #endif
+ **/
 
     // MARK: Properties
 
@@ -164,7 +165,7 @@ open class SessionDelegate: NSObject {
                 return sessionDidFinishEventsForBackgroundURLSession != nil
             }
         #endif
-
+/**
         #if !os(watchOS)
             switch selector {
             case #selector(URLSessionStreamDelegate.urlSession(_:readClosedFor:)):
@@ -179,7 +180,7 @@ open class SessionDelegate: NSObject {
                 break
             }
         #endif
-
+**/
         switch selector {
         case #selector(URLSessionDelegate.urlSession(_:didBecomeInvalidWithError:)):
             return sessionDidBecomeInvalidWithError != nil
@@ -632,7 +633,7 @@ extension SessionDelegate: URLSessionDownloadDelegate {
         }
     }
 }
-
+/**
 // MARK: - URLSessionStreamDelegate
 
 #if !os(watchOS)
@@ -679,3 +680,4 @@ extension SessionDelegate: URLSessionStreamDelegate {
 }
 
 #endif
+**/

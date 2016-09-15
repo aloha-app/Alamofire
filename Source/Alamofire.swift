@@ -418,7 +418,7 @@ public func upload(
         encodingCompletion: encodingCompletion
     )
 }
-
+/**
 #if !os(watchOS)
 
 // MARK: - Stream Request
@@ -454,3 +454,4 @@ public func stream(with netService: NetService) -> StreamRequest {
 }
 
 #endif
+**/

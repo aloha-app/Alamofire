@@ -571,7 +571,7 @@ open class UploadRequest: DataRequest {
         return self
     }
 }
-
+/**
 // MARK: -
 
 #if !os(watchOS)
@@ -598,3 +598,4 @@ open class StreamRequest: Request {
 }
 
 #endif
+**/
