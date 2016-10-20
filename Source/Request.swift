@@ -571,9 +571,9 @@ open class UploadRequest: DataRequest {
         return self
     }
 }
-/**
-// MARK: -
 
+// MARK: -
+/**
 #if !os(watchOS)
 
 /// Specific type of `Request` that manages an underlying `URLSessionStreamTask`.

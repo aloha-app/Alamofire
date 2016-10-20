@@ -102,9 +102,9 @@ open class SessionDelegate: NSObject {
 
     /// Overrides default behavior for URLSessionDownloadDelegate method `urlSession(_:downloadTask:didResumeAtOffset:expectedTotalBytes:)`.
     open var downloadTaskDidResumeAtOffset: ((URLSession, URLSessionDownloadTask, Int64, Int64) -> Void)?
-/**
-    // MARK: URLSessionStreamDelegate Overrides
 
+    // MARK: URLSessionStreamDelegate Overrides
+/**
 #if !os(watchOS)
 
     /// Overrides default behavior for URLSessionStreamDelegate method `urlSession(_:readClosedFor:)`.
@@ -120,8 +120,7 @@ open class SessionDelegate: NSObject {
     open var streamTaskDidBecomeInputAndOutputStreams: ((URLSession, URLSessionStreamTask, InputStream, OutputStream) -> Void)?
 
 #endif
- **/
-
+**/
     // MARK: Properties
 
     var retrier: RequestRetrier?
@@ -160,7 +159,7 @@ open class SessionDelegate: NSObject {
     ///
     /// - returns: `true` if the receiver implements or inherits a method that can respond to selector, otherwise `false`.
     open override func responds(to selector: Selector) -> Bool {
-        #if !os(OSX)
+        #if !os(macOS)
             if selector == #selector(URLSessionDelegate.urlSessionDidFinishEvents(forBackgroundURLSession:)) {
                 return sessionDidFinishEventsForBackgroundURLSession != nil
             }
@@ -248,7 +247,7 @@ extension SessionDelegate: URLSessionDelegate {
         completionHandler(disposition, credential)
     }
 
-#if !os(OSX)
+#if !os(macOS)
 
     /// Tells the delegate that all messages enqueued for a session have been delivered.
     ///
@@ -633,9 +632,9 @@ extension SessionDelegate: URLSessionDownloadDelegate {
         }
     }
 }
-/**
-// MARK: - URLSessionStreamDelegate
 
+// MARK: - URLSessionStreamDelegate
+/**
 #if !os(watchOS)
 
 extension SessionDelegate: URLSessionStreamDelegate {
